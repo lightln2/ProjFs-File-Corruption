@@ -96,6 +96,7 @@ int main() {
 	const wchar_t* rootName = L"C:\\Temp\\Virt1";
 	const wchar_t* virtFileName = L"C:\\Temp\\Virt1\\test";
 	if (FileExists(virtFileName)) DeleteFile(virtFileName);
+	if (FileExists(virtFileName)) RemoveDirectory(virtFileName);
 	if (FileExists(rootName)) RemoveDirectory(rootName);
 	if (!CreateDirectoryW(rootName, nullptr)) {
 		cout << "cannot create virtualization root" << endl;
@@ -128,7 +129,7 @@ int main() {
 		return -1;
 	}
 	std::string str;
-	cout << "Virtual FS started. Open file c:\\temp\\virt1\\temp in Microsoft Visual Studio, change and save it. "
+	cout << "Virtual FS started. Open file c:\\temp\\virt1\\test in Microsoft Visual Studio, change and save it. "
 		<< " Then Press <enter> here and PrjDeleteFile will be called reverting file to its original state" << endl;
 	getline(cin, str);
 	cout << "deleting file" << endl;
